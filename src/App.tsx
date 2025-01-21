@@ -1,62 +1,24 @@
+import { HashRouter } from "react-router-dom";
+import AnimatedRoutes from "./AnimatedRoutes";
 import "./App.css";
+import Container from "./Components/UI/Container/Container";
+import { EmulatorContextProvider } from "./EmulatorContext";
+import { SystemContextProvider } from "./SystemContext";
+import { UserContextProvider } from "./UserContext";
 
 function App() {
-  function launchEmulator(emulator: string) {
-    window.ipcRenderer.send("run-emulator", emulator);
-  }
-
   return (
-    <>
-      <button
-        onClick={() => {
-          launchEmulator("RetroArch");
-        }}
-      >
-        RetroArch
-      </button>
-      <button
-        onClick={() => {
-          launchEmulator("Dolphin");
-        }}
-      >
-        Dolphin
-      </button>
-      <button
-        onClick={() => {
-          launchEmulator("Cemu");
-        }}
-      >
-        Cemu
-      </button>
-      <button
-        onClick={() => {
-          launchEmulator("PCSX2");
-        }}
-      >
-        PCSX2
-      </button>
-      <button
-        onClick={() => {
-          launchEmulator("RPCS3");
-        }}
-      >
-        RPCS3
-      </button>
-      <button
-        onClick={() => {
-          launchEmulator("VPinball");
-        }}
-      >
-        VPinball
-      </button>
-      <button
-        onClick={() => {
-          launchEmulator("ArcadeFlashWeb");
-        }}
-      >
-        ArcadeFlashWeb
-      </button>
-    </>
+    <HashRouter>
+      <UserContextProvider>
+        <EmulatorContextProvider>
+          <SystemContextProvider>
+            <Container>
+              <AnimatedRoutes />
+            </Container>
+          </SystemContextProvider>
+        </EmulatorContextProvider>
+      </UserContextProvider>
+    </HashRouter>
   );
 }
 

@@ -1,0 +1,85 @@
+.music-player {
+  position: absolute;
+  outline: none;
+  bottom: 20px;
+  right: 20px;
+  cursor: grab;
+  display: flex;
+  gap: 5px;
+  z-index: 100;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.2s ease;
+  overflow: hidden;
+  > img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+  .song-content {
+    padding: 10px 20px 5px 20px;
+  }
+  h2 {
+    color: #eee;
+    font-size: 1.125rem;
+    max-width: 180px;
+    text-align: center;
+    line-height: 1.5rem;
+    margin-bottom: 2px;
+  }
+  p {
+    color: #aaa;
+    font-size: 0.9rem;
+    text-align: center;
+    max-width: 180px;
+  }
+  .drag-bar {
+    display: block;
+    width: 100%;
+    border-radius: 100px;
+    height: 4px;
+    background: #303030;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  }
+  .song-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .song-buttons {
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .song-buttons img {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.5)) brightness(100%);
+    cursor: pointer;
+    transition: filter 0.3s ease;
+    &:hover {
+      filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.5)) brightness(300%);
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

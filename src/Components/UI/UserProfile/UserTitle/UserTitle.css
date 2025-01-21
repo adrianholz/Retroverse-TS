@@ -1,0 +1,27 @@
+.profile-screen {
+  .user-panel {
+    .user-title {
+      display: flex;
+      gap: 20px;
+      img {
+        max-width: fit-content;
+        border-radius: 10px;
+        max-width: 128px;
+        max-height: 128px;
+      }
+      h1 {
+        color: var(--w1);
+      }
+      p {
+        color: #808080;
+        font-weight: 500;
+        font-size: 1.125rem;
+        max-width: 300px;
+      }
+      span {
+        color: #808080;
+        font-size: 1.125rem;
+      }
+    }
+  }
+}

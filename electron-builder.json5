@@ -21,6 +21,11 @@
       "from": "extras/roms",
       "to": "roms",
       "filter": ["**/*"]
+    },
+    {
+      "from": "extras/assets",
+      "to": "assets",
+      "filter": ["**/*"]
     }
   ],
   "mac": {
