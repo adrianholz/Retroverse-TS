@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
 import { useContext } from "react";
 import { UserContext } from "../../../UserContext";
+import Title from "../Title/Title";
 
 const Navigation = () => {
   let resourcesPath = window.ipcRenderer.sendSync("get-resources-path");
   resourcesPath = resourcesPath.replace(/\\/g, "/");
 
   const { login, summary } = useContext(UserContext)!;
+
+  const location = useLocation();
 
   function handleClose() {
     window.ipcRenderer.send("close-app");
@@ -16,7 +19,10 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <ul>
-        <Link to={login ? "/profile" : "/login"}>
+        <Link
+          to={login ? "/profile" : "/login"}
+          style={{ marginRight: "36px" }}
+        >
           <li>
             <img
               src={
@@ -27,7 +33,7 @@ const Navigation = () => {
               className={login && summary ? "user-icon" : ""}
               alt="User Icon"
             />
-            <h2>{login && summary ? summary.user : "Account"}</h2>
+            <h2>Account</h2>
           </li>
         </Link>
         <Link to="/library">
@@ -39,14 +45,24 @@ const Navigation = () => {
             <h2>Library</h2>
           </li>
         </Link>
-        <li>
-          <img
-            src={`${resourcesPath}/assets/img/svg/gear.svg`}
-            alt="Settings Icon"
-          />
-          <h2>Settings</h2>
-        </li>
-        <li onClick={handleClose}>
+        <div
+          style={
+            location.pathname !== "/"
+              ? { margin: "0 120px 0 140px" }
+              : { margin: "0 18px" }
+          }
+        ></div>
+        {location.pathname !== "/" && <Title navigation={true} />}
+        <Link to="/settings">
+          <li>
+            <img
+              src={`${resourcesPath}/assets/img/svg/gear.svg`}
+              alt="Settings Icon"
+            />
+            <h2>Settings</h2>
+          </li>
+        </Link>
+        <li onClick={handleClose} style={{ marginLeft: "36px" }}>
           <img
             src={`${resourcesPath}/assets/img/svg/door-open.svg`}
             alt="Exit Icon"

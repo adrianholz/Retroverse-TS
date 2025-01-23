@@ -8,6 +8,7 @@
         border-radius: 10px;
         max-width: 128px;
         max-height: 128px;
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
       }
       h1 {
         color: var(--w1);

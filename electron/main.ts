@@ -22,12 +22,19 @@ function createWindow() {
   win = new BrowserWindow({
     width: 1600,
     height: 900,
+    maximizable: true,
     icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
     webPreferences: {
       preload: path.join(__dirname, "preload.mjs"),
       contextIsolation: true,
     },
     autoHideMenuBar: true,
+  });
+
+  win.on("will-resize", (event) => {
+    if (!win!.isMaximized()) {
+      event.preventDefault(); // Prevent resizing when not maximized
+    }
   });
 
   if (VITE_DEV_SERVER_URL) {

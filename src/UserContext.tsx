@@ -7,11 +7,7 @@ import {
 } from "react";
 import {
   buildAuthorization,
-  getUserAwards,
-  getUserRecentlyPlayedGames,
   getUserSummary,
-  UserAwards,
-  UserRecentlyPlayedGames,
   UserSummary,
 } from "@retroachievements/api";
 import { useNavigate } from "react-router-dom";
@@ -23,8 +19,6 @@ type UserContextTypes = {
   error: any;
   setError: React.Dispatch<any>;
   summary: UserSummary | null;
-  awards: UserAwards | null;
-  recentGames: UserRecentlyPlayedGames | null;
   login: boolean;
   userLogout: () => Promise<() => void>;
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -40,9 +34,6 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [intro, setIntro] = useState(true);
   const [login, setLogin] = useState(false);
   const [summary, setSummary] = useState<UserSummary | null>(null);
-  const [awards, setAwards] = useState<UserAwards | null>(null);
-  const [recentGames, setRecentGames] =
-    useState<UserRecentlyPlayedGames | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>(null);
   const [theme, setTheme] = useState({
@@ -53,7 +44,7 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
     orbit: false,
     wave: true,
     emulatorLogos: true,
-    emulatorLogosStyle: "wave", //orbit, float, wave
+    emulatorLogosStyle: "wave", //orbit, float, wave"
     background: true, //edge blurs
     backgroundColors: [
       { color: "#ffffff50", size: 1200 },
@@ -92,24 +83,23 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
     try {
       setLoading(true);
       const authorization = buildAuthorization({ username, webApiKey });
+      window.localStorage.setItem("username", username);
+      window.localStorage.setItem("webApiKey", webApiKey);
+      const toDate = new Date();
+      const fromDate = new Date();
+      fromDate.setMonth(fromDate.getMonth() - 1);
       const userSummary = await getUserSummary(authorization, {
         username: username,
         recentGamesCount: 0,
         recentAchievementsCount: 0,
       });
-      const userRecentGames = await getUserRecentlyPlayedGames(authorization, {
-        username: username,
-        count: 10,
-      });
-      const userAwards = await getUserAwards(authorization, {
-        username: username,
-      });
       setSummary(userSummary);
-      setRecentGames(userRecentGames);
-      setAwards(userAwards);
       setError(null);
       setLogin(true);
-      navigate("/profile");
+      const hasRun = sessionStorage.getItem("introRun");
+      if (hasRun) {
+        navigate("/profile");
+      }
     } catch {
       if (username == "" || webApiKey == "") {
         setError("Please set both your username and web API key.");
@@ -124,15 +114,23 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const userLogout = useCallback(async function () {
     navigate("/login");
     const timeout = setTimeout(() => {
+      window.localStorage.setItem("username", "");
+      window.localStorage.setItem("webApiKey", "");
       setSummary(null);
       setLoading(false);
       setLogin(false);
-      setRecentGames(null);
-      setAwards(null);
     }, 300);
 
     return () => clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    const username = window.localStorage.getItem("username");
+    const webApiKey = window.localStorage.getItem("webApiKey");
+    if (username && webApiKey) {
+      handleLogin(username, webApiKey);
+    }
+  }, [userLogout]);
 
   return (
     <UserContext.Provider
@@ -140,8 +138,6 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
         theme,
         intro,
         summary,
-        awards,
-        recentGames,
         loading,
         error,
         setError,

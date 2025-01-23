@@ -3,6 +3,7 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 type System = {
   name: string;
   title: string;
+  altTitle: string;
   core: string;
 };
 

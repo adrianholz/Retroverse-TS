@@ -161,3 +161,27 @@ ul {
 #root {
   isolation: isolate;
 }
+
+.Homebrew,
+.Hack,
+.Demo {
+  text-transform: uppercase;
+  display: inline-block;
+  font-size: 1rem;
+  background: #2b8be4;
+  padding: 0px 6px;
+  border-radius: 5px;
+}
+
+.Hack {
+  background: #e42b2b;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

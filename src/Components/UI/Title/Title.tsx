@@ -2,10 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import "./Title.css";
 import SystemContext from "../../../SystemContext";
 import { UserContext } from "../../../UserContext";
+import { useNavigate } from "react-router-dom";
 
-const Title = () => {
+const Title = ({ navigation }: { navigation: boolean }) => {
   let resourcesPath = window.ipcRenderer.sendSync("get-resources-path");
   resourcesPath = resourcesPath.replace(/\\/g, "/");
+
+  const navigate = useNavigate();
 
   const { systems } = useContext(SystemContext)!;
   const { theme, intro } = useContext(UserContext)!;
@@ -17,17 +20,26 @@ const Title = () => {
     return shuffled.slice(0, count);
   };
 
+  function handleClick() {
+    if (navigation) {
+      navigate("/"); // Navigate to the base route
+    }
+  }
+
   useEffect(() => {
     if (systems) {
       setRandomSystems(getRandomSystems(systems, 6));
     }
   }, [systems]);
 
-  const translateXValues = [-425, 425, -550, 550, -425, 425];
-  const translateYValues = [-275, -275, 0, 0, 275, 275];
+  const translateXValues = [-425, 425, -525, 525, -425, 425];
+  const translateYValues = [-200, -200, 0, 0, 200, 200];
 
   return (
-    <div className="title">
+    <div
+      className={`title ${navigation ? "navigation-title" : ""}`}
+      onClick={handleClick}
+    >
       <h1 style={{ animationDelay: `${intro ? 1 : 0}s` }}>
         Retro<span>verse</span>
       </h1>
@@ -63,11 +75,12 @@ const Title = () => {
             switch (theme.emulatorLogosStyle) {
               case "float":
                 return {
-                  maxWidth: "150px",
-                  maxHeight: "150px",
+                  maxWidth: "120px",
+                  maxHeight: "120px",
                 };
               case "orbit":
                 return {
+                  display: "block",
                   maxWidth: "75px",
                   maxHeight: "75px",
                 };
@@ -109,6 +122,7 @@ const Title = () => {
                           animationDelay: intro
                             ? `${2.5 + index * 0.25}s, ${4 + index * 0.25}s`
                             : `${index * 0.25}s, ${1.0 + index * 0.25}s`,
+                          opacity: 0,
                         } as React.CSSProperties;
                       case "orbit":
                         return {

@@ -3,6 +3,8 @@ import { AnimatePresence } from "framer-motion";
 import HomeScreen from "./Components/Screens/HomeScreen/HomeScreen";
 import ProfileScreen from "./Components/Screens/ProfileScreen/ProfileScreen";
 import LoginScreen from "./Components/Screens/LoginScreen/LoginScreen";
+import UserGamesScreen from "./Components/Screens/UserGamesScreen/UserGamesScreen";
+import SingleGameScreen from "./Components/Screens/SingleGameScreen/SingleGameScreen";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -13,6 +15,8 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<HomeScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/profile" element={<ProfileScreen />} />
+        <Route path="/profile/games" element={<UserGamesScreen />} />
+        <Route path="/profile/games/:gameId" element={<SingleGameScreen />} />
       </Routes>
     </AnimatePresence>
   );

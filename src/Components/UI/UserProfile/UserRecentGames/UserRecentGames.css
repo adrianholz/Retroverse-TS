@@ -1,0 +1,97 @@
+.user-recent-games {
+  margin-top: 40px;
+  transform: translateX(-20px);
+  width: 100%;
+  max-width: 480px;
+  > h2 {
+    color: #fff;
+    font-size: 1.65rem;
+    font-weight: 600;
+    margin: 0 0 10px 20px;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+  }
+  .games {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: appear 0.3s ease forwards;
+    height: 240px;
+    overflow: auto;
+    gap: 20px;
+    padding: 7px 20px 20px 20px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .game {
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      flex-shrink: 0;
+      max-width: 440px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      .completed-game {
+        position: absolute;
+        z-index: 10;
+        width: 50px;
+        top: 10px;
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.8));
+      }
+      .game-info {
+        color: #aaa;
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        backdrop-filter: brightness(0.4) blur(6px);
+        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+        > img {
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+          width: 100%;
+          max-width: 96px;
+          object-fit: cover;
+        }
+        > div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        h2 {
+          color: #fff;
+          font-weight: 600;
+          font-size: 1.25rem;
+          line-height: 1.55rem;
+        }
+        h3 {
+          color: #aaa;
+          font-size: 1rem;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.8));
+          }
+        }
+        p {
+          font-size: 1rem;
+        }
+        span {
+          color: #eee;
+          font-weight: 600;
+        }
+      }
+    }
+    .no-recent {
+      color: #aaa;
+      margin-top: 18px;
+      font-size: 1.125rem;
+      animation: appear 0.5s ease;
+    }
+  }
+}

@@ -9,7 +9,7 @@ const HomeScreen = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <Title />
+      <Title navigation={false} />
     </motion.div>
   );
 };
