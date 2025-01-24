@@ -47,10 +47,10 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
     emulatorLogosStyle: "wave", //orbit, float, wave"
     background: true, //edge blurs
     backgroundColors: [
-      { color: "#ffffff50", size: 1200 },
-      { color: "#ffffff00", size: 1200 },
-      { color: "#ffffff50", size: 1200 },
-      { color: "#ffffff00", size: 1200 },
+      { color: "#ffffff50", size: 800 },
+      { color: "#ffffff00", size: 800 },
+      { color: "#ffffff50", size: 800 },
+      { color: "#ffffff00", size: 800 },
     ],
     musicPlayer: true, //music player visibility
     beat: true, //edge blurs animate on music bpm
