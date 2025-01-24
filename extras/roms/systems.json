@@ -1,0 +1,308 @@
+[
+  {
+    "name": "snes",
+    "title": "SNES",
+    "altTitle": "SNES/Super Famicom",
+    "core": "snes9x"
+  },
+  {
+    "name": "nes",
+    "title": "NES",
+    "altTitle": "NES/Famicom",
+    "core": "mesen"
+  },
+  {
+    "name": "n64",
+    "title": "Nintendo 64",
+    "altTitle": "Nintendo 64",
+    "core": "mupen64plus_next"
+  },
+  {
+    "name": "gamecube",
+    "title": "Gamecube",
+    "altTitle": "GameCube",
+    "core": "dolphin"
+  },
+  {
+    "name": "wii",
+    "title": "Nintendo Wii",
+    "altTitle": "Wii",
+    "core": "dolphin"
+  },
+  {
+    "name": "gb",
+    "title": "Gameboy",
+    "altTitle": "Game Boy",
+    "core": "gambatte"
+  },
+  {
+    "name": "gbc",
+    "title": "Gameboy Color",
+    "altTitle": "Game Boy Color",
+    "core": "gambatte"
+  },
+  {
+    "name": "gba",
+    "title": "Gameboy Advance",
+    "altTitle": "Game Boy Advance",
+    "core": "vba_next"
+  },
+  {
+    "name": "ds",
+    "title": "Nintendo DS",
+    "altTitle": "Nintendo DS",
+    "core": "desmume"
+  },
+  {
+    "name": "3ds",
+    "title": "Nintendo 3DS",
+    "altTitle": "Nintendo 3DS",
+    "core": "citra"
+  },
+  {
+    "name": "megadrive",
+    "title": "Megadrive",
+    "altTitle": "Genesis/Mega Drive",
+    "core": "genesis_plus_gx"
+  },
+  {
+    "name": "gamegear",
+    "title": "Gamegear",
+    "altTitle": "Game Gear",
+    "core": "genesis_plus_gx"
+  },
+  {
+    "name": "mastersystem",
+    "title": "Master System",
+    "altTitle": "Master System",
+    "core": "genesis_plus_gx"
+  },
+  {
+    "name": "sg1000",
+    "title": "SG-1000",
+    "altTitle": "SG-1000",
+    "core": "gearsystem"
+  },
+  {
+    "name": "segacd",
+    "title": "Sega CD",
+    "altTitle": "Sega CD",
+    "core": "genesis_plus_gx"
+  },
+  {
+    "name": "sega32x",
+    "title": "Sega 32x",
+    "altTitle": "32x",
+    "core": "picodrive"
+  },
+  {
+    "name": "saturn",
+    "title": "Sega Saturn",
+    "altTitle": "Saturn",
+    "core": "flycast"
+  },
+  {
+    "name": "dreamcast",
+    "title": "Dreamcast",
+    "altTitle": "Dreamcast",
+    "core": "flycast"
+  },
+  {
+    "name": "naomi",
+    "title": "Naomi",
+    "altTitle": "Naomi",
+    "core": "flycast"
+  },
+  {
+    "name": "psx",
+    "title": "PlayStation",
+    "altTitle": "PlayStation",
+    "core": "mednafen_psx_hw"
+  },
+  {
+    "name": "psp",
+    "title": "PlayStation Portable",
+    "altTitle": "PlayStation Portable",
+    "core": "ppsspp"
+  },
+  {
+    "name": "ps2",
+    "title": "PlayStation 2",
+    "altTitle": "PlayStation 2",
+    "core": "pcsx2"
+  },
+  {
+    "name": "3do",
+    "title": "Panasonic 3DO",
+    "altTitle": "3DO Interactive Multiplayer",
+    "core": "opera"
+  },
+  {
+    "name": "cdi",
+    "title": "Phillips CD-i",
+    "altTitle": "Phillips CD-i",
+    "core": "same_cdi"
+  },
+  {
+    "name": "arduboy",
+    "title": "Arduboy",
+    "altTitle": "Arduboy",
+    "core": "arduous"
+  },
+  {
+    "name": "wswan",
+    "title": "Wonderswan",
+    "altTitle": "WonderSwan",
+    "core": "mednafen_wswan"
+  },
+  {
+    "name": "wswanc",
+    "title": "Wonderswan Color",
+    "altTitle": "Wonderswan Color",
+    "core": "mednafen_wswan"
+  },
+  {
+    "name": "atomiswave",
+    "title": "Atomiswave",
+    "altTitle": "Atomiswave",
+    "core": "flycast"
+  },
+  {
+    "name": "neogeo",
+    "title": "Neo-Geo",
+    "altTitle": "Neo-Geo",
+    "core": "fbalpha2012_neogeo"
+  },
+  {
+    "name": "neogeocd",
+    "title": "Neo-Geo CD",
+    "altTitle": "Neo Geo CD",
+    "core": "neocd"
+  },
+  {
+    "name": "ngp",
+    "title": "Neo-Geo Pocket",
+    "altTitle": "Neo Geo Pocket",
+    "core": "mednafen_ngp"
+  },
+  {
+    "name": "ngpc",
+    "title": "Neo-Geo Pocket Color",
+    "altTitle": "Neo-Geo Pocket Color",
+    "core": "mednafen_ngp"
+  },
+  {
+    "name": "colecovision",
+    "title": "Coleco Vision",
+    "altTitle": "ColecoVision",
+    "core": "gearcoleco"
+  },
+  {
+    "name": "atarist",
+    "title": "Atari ST",
+    "altTitle": "Atari ST",
+    "core": "hatari"
+  },
+  {
+    "name": "atari800",
+    "title": "Atari 800",
+    "altTitle": "Atari 800",
+    "core": "atari800"
+  },
+  {
+    "name": "atari2600",
+    "title": "Atari 2600",
+    "altTitle": "Atari 2600",
+    "core": "stella"
+  },
+  {
+    "name": "atari5200",
+    "title": "Atari 5200",
+    "altTitle": "Atari 5200",
+    "core": "a5200"
+  },
+  {
+    "name": "atari7800",
+    "title": "Atari 7800",
+    "altTitle": "Atari 7800",
+    "core": "prosystem"
+  },
+  {
+    "name": "lynx",
+    "title": "Atari Lynx",
+    "altTitle": "Atari Lynx",
+    "core": "mednafen_lynx"
+  },
+  {
+    "name": "jaguar",
+    "title": "Atari Jaguar",
+    "altTitle": "Atari Jaguar",
+    "core": "virtualjaguar"
+  },
+  {
+    "name": "virtualboy",
+    "title": "Virtual Boy",
+    "altTitle": "Virtual Boy",
+    "core": "mednafen_vb"
+  },
+  {
+    "name": "pokemini",
+    "title": "Pokémon Mini",
+    "altTitle": "Pokemon Mini",
+    "core": "pokemini"
+  },
+  {
+    "name": "pcfx",
+    "title": "PC-FX",
+    "altTitle": "PC-FX",
+    "core": "mednafen_pcfx"
+  },
+  {
+    "name": "pcengine",
+    "title": "TurboGrafX-16",
+    "altTitle": "PC Engine/TurboGrafx-16",
+    "core": "mednafen_pce"
+  },
+  {
+    "name": "supergrafx",
+    "title": "SuperGrafX",
+    "altTitle": "SuperGrafX",
+    "core": "mednafen_pce"
+  },
+  {
+    "name": "pcenginecd",
+    "title": "TurboGrafX-CD",
+    "altTitle": "PC Engine CD/TurboGrafx-CD",
+    "core": "mednafen_pce"
+  },
+  {
+    "name": "o2em",
+    "title": "Videopac/Odyssey²",
+    "altTitle": "Magnavox Odyssey 2",
+    "core": "o2em"
+  },
+  {
+    "name": "dos",
+    "title": "MS-DOS",
+    "altTitle": "MS-DOS",
+    "core": "dosbox_pure"
+  },
+  {
+    "name": "amiga",
+    "title": "Amiga",
+    "altTitle": "Amiga",
+    "core": "puae"
+  },
+  {
+    "name": "c64",
+    "title": "Commodore 64",
+    "altTitle": "Commodore 64",
+    "core": "vice_x64sc"
+  },
+  {
+    "name": "amstradcpc",
+    "title": "Amstrad CPC",
+    "altTitle": "Amstrad CPC",
+    "core": "cap32"
+  }
+]
