@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
 import "./MusicPlayer.css";
 import { BarLoader } from "react-spinners";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import LibraryContext from "../../../LibraryContext";
 
 const MusicPlayer = ({
   audioDragRef,
@@ -28,6 +29,8 @@ const MusicPlayer = ({
 }) => {
   let resourcesPath = window.ipcRenderer.sendSync("get-resources-path");
   resourcesPath = resourcesPath.replace(/\\/g, "/");
+
+  const { setCarousel } = useContext(LibraryContext)!;
 
   useEffect(() => {
     const handleEnd = () => {
@@ -67,6 +70,14 @@ const MusicPlayer = ({
     window.localStorage.setItem("pause", pauseSong ? "false" : "true");
   }
 
+  function handleMouseOver() {
+    setCarousel(false);
+  }
+
+  function handleMouseLeave() {
+    setCarousel(true);
+  }
+
   return (
     <motion.div
       whileHover={{ scale: 1.08 }}
@@ -75,6 +86,8 @@ const MusicPlayer = ({
       dragConstraints={audioDragRef}
       className="music-player"
       style={{ opacity: theme.musicPlayer ? 1 : 0 }}
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
     >
       {song ? <img src={song.coverArt} alt="Cover Art" /> : null}
 

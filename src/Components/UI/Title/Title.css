@@ -92,7 +92,7 @@
 .navigation-title {
   cursor: pointer;
   position: absolute;
-  transform: scale(0.2);
+  transform: translateX(-10px) scale(0.2);
   transition: transform 0.3s ease !important;
   transform-origin: center;
   h1 {
@@ -104,7 +104,7 @@
     display: none;
   }
   &:hover {
-    transform: scale(0.22);
+    transform: translateX(-10px) scale(0.22);
   }
 }
 

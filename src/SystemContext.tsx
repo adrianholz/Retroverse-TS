@@ -1,10 +1,22 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import {
+  createContext,
+  CSSProperties,
+  ReactNode,
+  useEffect,
+  useState,
+} from "react";
 
 type System = {
   name: string;
   title: string;
   altTitle: string;
   core: string;
+  styles: {
+    swiperSlide?: CSSProperties;
+    gameInfo?: CSSProperties;
+    video?: CSSProperties;
+    logo?: CSSProperties;
+  };
 };
 
 type SystemContextTypes = {

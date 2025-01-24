@@ -32,6 +32,7 @@ declare global {
       saturate: number;
       brightness: number;
     };
+    achievementOfTheWeek: boolean;
   };
 }
 

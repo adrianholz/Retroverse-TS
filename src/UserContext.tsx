@@ -6,7 +6,9 @@ import {
   useState,
 } from "react";
 import {
+  AchievementOfTheWeek,
   buildAuthorization,
+  getAchievementOfTheWeek,
   getUserSummary,
   UserSummary,
 } from "@retroachievements/api";
@@ -19,6 +21,7 @@ type UserContextTypes = {
   error: any;
   setError: React.Dispatch<any>;
   summary: UserSummary | null;
+  aotw: AchievementOfTheWeek | null;
   login: boolean;
   userLogout: () => Promise<() => void>;
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -34,6 +37,7 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [intro, setIntro] = useState(true);
   const [login, setLogin] = useState(false);
   const [summary, setSummary] = useState<UserSummary | null>(null);
+  const [aotw, setAotw] = useState<AchievementOfTheWeek | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>(null);
   const [theme, setTheme] = useState({
@@ -61,6 +65,7 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
       saturate: 0, //0-100
       brightness: 40, //0-100
     },
+    achievementOfTheWeek: true,
   });
 
   const navigate = useNavigate();
@@ -90,7 +95,9 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
         recentGamesCount: 0,
         recentAchievementsCount: 0,
       });
+      const achievementOfTheWeek = await getAchievementOfTheWeek(authorization);
       setSummary(userSummary);
+      setAotw(achievementOfTheWeek);
       setError(null);
       setLogin(true);
       const hasRun = sessionStorage.getItem("introRun");
@@ -135,6 +142,7 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
         theme,
         intro,
         summary,
+        aotw,
         loading,
         error,
         setError,

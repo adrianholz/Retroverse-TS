@@ -3,6 +3,7 @@ import "./UserAchievements.css";
 import { motion } from "framer-motion";
 import { DatedUserAchievement } from "@retroachievements/api";
 import { BarLoader } from "react-spinners";
+import { Link } from "react-router-dom";
 
 type TooltipTypes = {
   visible: boolean;
@@ -99,7 +100,11 @@ const UserAchievements = ({
             .slice(-36)
             .reverse()
             .map((achievement, index) => (
-              <div className="achievement" key={index}>
+              <Link
+                to={`/profile/games/${achievement.gameId}`}
+                className="achievement"
+                key={index}
+              >
                 <div>
                   <motion.div
                     whileHover={{ scale: 1.2 }}
@@ -128,7 +133,7 @@ const UserAchievements = ({
                     />
                   )}
                 </div>
-              </div>
+              </Link>
             ))
         ) : (
           <p className="no-recent">No achievements in the last month.</p>

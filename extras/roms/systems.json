@@ -3,306 +3,1207 @@
     "name": "snes",
     "title": "SNES",
     "altTitle": "SNES/Super Famicom",
-    "core": "snes9x"
+    "core": "snes9x",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "480px",
+        "transform": "translateY(100%)"
+      },
+      "gameInfo": {
+        "right": "-105%",
+        "bottom": "0"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "keyframes": {
+          "0%": {
+            "left": "160px"
+          },
+          "100%": {
+            "left": "420px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "nes",
     "title": "NES",
     "altTitle": "NES/Famicom",
-    "core": "mesen"
+    "core": "mesen",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "390px",
+        "transform": "translateY(94%)"
+      },
+      "gameInfo": {
+        "right": "-128%",
+        "bottom": "10px"
+      },
+      "logo": {
+        "maxWidth": "200px",
+        "left": "55px",
+        "marginTop": "-15px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "keyframes": {
+          "0%": {
+            "left": "150px"
+          },
+          "100%": {
+            "left": "390px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "n64",
     "title": "Nintendo 64",
     "altTitle": "Nintendo 64",
-    "core": "mupen64plus_next"
+    "core": "mupen64plus_next",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "480px",
+        "transform": "translateY(116%)"
+      },
+      "gameInfo": {
+        "right": "-103%",
+        "bottom": "0px"
+      },
+      "video": {
+        "maxWidth": "180px",
+        "left": "260px"
+      }
+    }
   },
   {
     "name": "gamecube",
     "title": "Gamecube",
     "altTitle": "GameCube",
-    "core": "dolphin"
+    "core": "dolphin",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "60px",
+        "marginTop": "-5px"
+      },
+      "video": {
+        "maxWidth": "200px",
+        "left": "250px"
+      }
+    }
   },
   {
     "name": "wii",
     "title": "Nintendo Wii",
     "altTitle": "Wii",
-    "core": "dolphin"
+    "core": "dolphin",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "175px",
+        "left": "65px",
+        "marginTop": "-10px"
+      },
+      "video": {
+        "left": "250px"
+      }
+    }
   },
   {
     "name": "gb",
     "title": "Gameboy",
     "altTitle": "Game Boy",
-    "core": "gambatte"
+    "core": "gambatte",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "385px",
+        "transform": "translateY(95%)"
+      },
+      "gameInfo": {
+        "right": "-128%",
+        "bottom": "10px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "70px",
+        "marginTop": "-10px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "keyframes": {
+          "0%": {
+            "left": "140px"
+          },
+          "100%": {
+            "left": "380px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "gbc",
     "title": "Gameboy Color",
     "altTitle": "Game Boy Color",
-    "core": "gambatte"
+    "core": "gambatte",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "385px",
+        "transform": "translateY(95%)"
+      },
+      "gameInfo": {
+        "right": "-128%",
+        "bottom": "10px"
+      },
+      "logo": {
+        "maxWidth": "200px",
+        "left": "50px",
+        "marginTop": "-25px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "keyframes": {
+          "0%": {
+            "left": "130px"
+          },
+          "100%": {
+            "left": "350px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "gba",
     "title": "Gameboy Advance",
     "altTitle": "Game Boy Advance",
-    "core": "vba_next"
+    "core": "vba_next",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "500px",
+        "transform": "translateY(125%)"
+      },
+      "gameInfo": {
+        "right": "-98%",
+        "bottom": "10px"
+      },
+      "logo": {
+        "maxWidth": "220px",
+        "left": "40px",
+        "marginTop": "-30px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "keyframes": {
+          "0%": {
+            "left": "140px"
+          },
+          "100%": {
+            "left": "365px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "ds",
     "title": "Nintendo DS",
     "altTitle": "Nintendo DS",
-    "core": "desmume"
+    "core": "desmume",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "400px",
+        "transform": "translateY(92%)"
+      },
+      "gameInfo": {
+        "right": "-125%",
+        "bottom": "10px"
+      },
+      "logo": {
+        "maxWidth": "150px",
+        "left": "80px",
+        "marginTop": "5px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "maxWidth": "150px",
+        "keyframes": {
+          "0%": {
+            "left": "135px"
+          },
+          "100%": {
+            "left": "350px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "3ds",
     "title": "Nintendo 3DS",
     "altTitle": "Nintendo 3DS",
-    "core": "citra"
+    "core": "citra",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "420px",
+        "transform": "translateY(92%)"
+      },
+      "gameInfo": {
+        "right": "-118%",
+        "bottom": "0"
+      },
+      "logo": {
+        "maxWidth": "190px",
+        "left": "65px",
+        "marginTop": "-10px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "width": "200px",
+        "keyframes": {
+          "0%": {
+            "left": "135px"
+          },
+          "100%": {
+            "left": "350px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "megadrive",
     "title": "Megadrive",
     "altTitle": "Genesis/Mega Drive",
-    "core": "genesis_plus_gx"
+    "core": "genesis_plus_gx",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "490px",
+        "transform": "translateY(103%)"
+      },
+      "gameInfo": {
+        "right": "-101%",
+        "bottom": "10px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "keyframes": {
+          "0%": {
+            "left": "120px"
+          },
+          "100%": {
+            "left": "380px"
+          }
+        }
+      },
+      "logo": {
+        "maxWidth": "190px",
+        "left": "65px",
+        "marginTop": "-8px"
+      }
+    }
   },
   {
     "name": "gamegear",
     "title": "Gamegear",
     "altTitle": "Game Gear",
-    "core": "genesis_plus_gx"
+    "core": "genesis_plus_gx",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "420px",
+        "transform": "translateY(96.5%)"
+      },
+      "gameInfo": {
+        "right": "-118%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "70px",
+        "marginTop": "0"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "maxWidth": "140px",
+        "keyframes": {
+          "0%": {
+            "left": "140px"
+          },
+          "100%": {
+            "left": "360px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "mastersystem",
     "title": "Master System",
     "altTitle": "Master System",
-    "core": "genesis_plus_gx"
+    "core": "genesis_plus_gx",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "493px",
+        "transform": "translateY(105%)"
+      },
+      "gameInfo": {
+        "right": "-100%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "190px",
+        "left": "60px",
+        "marginTop": "-8px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "width": "70px",
+        "keyframes": {
+          "0%": {
+            "left": "180px"
+          },
+          "100%": {
+            "left": "425px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "sg1000",
     "title": "SG-1000",
     "altTitle": "SG-1000",
-    "core": "gearsystem"
+    "core": "gearsystem",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "380px",
+        "transform": "translateY(98%)"
+      },
+      "gameInfo": {
+        "right": "-130%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "190px",
+        "left": "60px",
+        "marginTop": "-12px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "maxWidth": "130px",
+        "keyframes": {
+          "0%": {
+            "left": "150px"
+          },
+          "100%": {
+            "left": "370px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "segacd",
     "title": "Sega CD",
     "altTitle": "Sega CD",
-    "core": "genesis_plus_gx"
+    "core": "genesis_plus_gx",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "190px",
+        "left": "65px",
+        "marginTop": "-12px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "keyframes": {
+          "0%": {
+            "left": "130px"
+          },
+          "100%": {
+            "left": "390px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "sega32x",
     "title": "Sega 32x",
     "altTitle": "32x",
-    "core": "picodrive"
+    "core": "picodrive",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "480px",
+        "transform": "translateY(110%)"
+      },
+      "gameInfo": {
+        "right": "-103%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "180px",
+        "left": "65px",
+        "marginTop": "-10px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "maxWidth": "130px",
+        "keyframes": {
+          "0%": {
+            "left": "130px"
+          },
+          "100%": {
+            "left": "390px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "saturn",
     "title": "Sega Saturn",
     "altTitle": "Saturn",
-    "core": "flycast"
+    "core": "flycast",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "180px",
+        "left": "62px",
+        "marginTop": "-8px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "maxWidth": "150px",
+        "keyframes": {
+          "0%": {
+            "left": "130px"
+          },
+          "100%": {
+            "left": "390px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "dreamcast",
     "title": "Dreamcast",
     "altTitle": "Dreamcast",
-    "core": "flycast"
+    "core": "flycast",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "160px",
+        "left": "75px",
+        "marginTop": "-3px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "maxWidth": "180px",
+        "keyframes": {
+          "0%": {
+            "left": "120px"
+          },
+          "100%": {
+            "left": "340px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "naomi",
     "title": "Naomi",
     "altTitle": "Naomi",
-    "core": "flycast"
+    "core": "flycast",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "190px",
+        "left": "55px",
+        "marginTop": "-12px"
+      },
+      "video": {
+        "animation": "2.59s ease-in-out infinite alternate",
+        "width": "200px",
+        "keyframes": {
+          "0%": {
+            "left": "120px"
+          },
+          "100%": {
+            "left": "340px"
+          }
+        }
+      }
+    }
   },
   {
     "name": "psx",
     "title": "PlayStation",
     "altTitle": "PlayStation",
-    "core": "mednafen_psx_hw"
+    "core": "mednafen_psx_hw",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "60px",
+        "marginTop": "-5px"
+      }
+    }
   },
   {
     "name": "psp",
     "title": "PlayStation Portable",
     "altTitle": "PlayStation Portable",
-    "core": "ppsspp"
+    "core": "ppsspp",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      }
+    }
   },
   {
     "name": "ps2",
     "title": "PlayStation 2",
     "altTitle": "PlayStation 2",
-    "core": "pcsx2"
+    "core": "pcsx2",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      }
+    }
   },
   {
     "name": "3do",
     "title": "Panasonic 3DO",
     "altTitle": "3DO Interactive Multiplayer",
-    "core": "opera"
+    "core": "opera",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      }
+    }
   },
   {
     "name": "cdi",
     "title": "Phillips CD-i",
     "altTitle": "Phillips CD-i",
-    "core": "same_cdi"
+    "core": "same_cdi",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      }
+    }
   },
   {
     "name": "arduboy",
     "title": "Arduboy",
     "altTitle": "Arduboy",
-    "core": "arduous"
+    "core": "arduous",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "220px",
+        "left": "50px",
+        "marginTop": "-30px"
+      }
+    }
   },
   {
     "name": "wswan",
     "title": "Wonderswan",
     "altTitle": "WonderSwan",
-    "core": "mednafen_wswan"
+    "core": "mednafen_wswan",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "500px",
+        "transform": "translateY(116%)"
+      },
+      "gameInfo": {
+        "right": "-99%",
+        "bottom": "0"
+      }
+    }
   },
   {
     "name": "wswanc",
     "title": "Wonderswan Color",
     "altTitle": "Wonderswan Color",
-    "core": "mednafen_wswan"
+    "core": "mednafen_wswan",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "500px",
+        "transform": "translateY(116%)"
+      },
+      "gameInfo": {
+        "right": "-99%",
+        "bottom": "0"
+      }
+    }
   },
   {
     "name": "atomiswave",
     "title": "Atomiswave",
     "altTitle": "Atomiswave",
-    "core": "flycast"
+    "core": "flycast",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "470px",
+        "transform": "translateY(96%)"
+      },
+      "gameInfo": {
+        "right": "-105%",
+        "bottom": "20px"
+      }
+    }
   },
   {
     "name": "neogeo",
     "title": "Neo-Geo",
     "altTitle": "Neo-Geo",
-    "core": "fbalpha2012_neogeo"
+    "core": "fbalpha2012_neogeo",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "470px",
+        "transform": "translateY(94%)"
+      },
+      "gameInfo": {
+        "right": "-105%",
+        "bottom": "20px"
+      }
+    }
   },
   {
     "name": "neogeocd",
     "title": "Neo-Geo CD",
     "altTitle": "Neo Geo CD",
-    "core": "neocd"
+    "core": "neocd",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "160px",
+        "left": "70px",
+        "marginTop": "0"
+      }
+    }
   },
   {
     "name": "ngp",
     "title": "Neo-Geo Pocket",
     "altTitle": "Neo Geo Pocket",
-    "core": "mednafen_ngp"
+    "core": "mednafen_ngp",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "70px",
+        "marginTop": "-15px"
+      }
+    }
   },
   {
     "name": "ngpc",
     "title": "Neo-Geo Pocket Color",
     "altTitle": "Neo-Geo Pocket Color",
-    "core": "mednafen_ngp"
+    "core": "mednafen_ngp",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "55px",
+        "marginTop": "-10px"
+      }
+    }
   },
   {
     "name": "colecovision",
     "title": "Coleco Vision",
     "altTitle": "ColecoVision",
-    "core": "gearcoleco"
+    "core": "gearcoleco",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "370px",
+        "transform": "translateY(95.5%)"
+      },
+      "gameInfo": {
+        "right": "-135%",
+        "bottom": "20px"
+      }
+    }
   },
   {
     "name": "atarist",
     "title": "Atari ST",
     "altTitle": "Atari ST",
-    "core": "hatari"
+    "core": "hatari",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "420px",
+        "transform": "translateY(87%)"
+      },
+      "gameInfo": {
+        "right": "-120%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "67px",
+        "marginTop": "-5px"
+      }
+    }
   },
   {
     "name": "atari800",
     "title": "Atari 800",
     "altTitle": "Atari 800",
-    "core": "atari800"
+    "core": "atari800",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "420px",
+        "transform": "translateY(87%)"
+      },
+      "gameInfo": {
+        "right": "-120%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "67px",
+        "marginTop": "-5px"
+      }
+    }
   },
   {
     "name": "atari2600",
     "title": "Atari 2600",
     "altTitle": "Atari 2600",
-    "core": "stella"
+    "core": "stella",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "365px",
+        "transform": "translateY(97%)"
+      },
+      "gameInfo": {
+        "right": "-136%",
+        "bottom": "10px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "67px",
+        "marginTop": "-5px"
+      }
+    }
   },
   {
     "name": "atari5200",
     "title": "Atari 5200",
     "altTitle": "Atari 5200",
-    "core": "a5200"
+    "core": "a5200",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "460px",
+        "transform": "translateY(97%)"
+      },
+      "gameInfo": {
+        "right": "-110%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "67px",
+        "marginTop": "-5px"
+      }
+    }
   },
   {
     "name": "atari7800",
     "title": "Atari 7800",
     "altTitle": "Atari 7800",
-    "core": "prosystem"
+    "core": "prosystem",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "365px",
+        "transform": "translateY(94%)"
+      },
+      "gameInfo": {
+        "right": "-136%",
+        "bottom": "10px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "67px",
+        "marginTop": "-5px"
+      }
+    }
   },
   {
     "name": "lynx",
     "title": "Atari Lynx",
     "altTitle": "Atari Lynx",
-    "core": "mednafen_lynx"
+    "core": "mednafen_lynx",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "420px",
+        "transform": "translateY(97%)"
+      },
+      "gameInfo": {
+        "right": "-118%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "67px",
+        "marginTop": "-5px"
+      }
+    }
   },
   {
     "name": "jaguar",
     "title": "Atari Jaguar",
     "altTitle": "Atari Jaguar",
-    "core": "virtualjaguar"
+    "core": "virtualjaguar",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "480px",
+        "transform": "translateY(97%)"
+      },
+      "gameInfo": {
+        "right": "-103%",
+        "bottom": "0"
+      },
+      "logo": {
+        "maxWidth": "170px",
+        "left": "67px",
+        "marginTop": "-5px"
+      }
+    }
   },
   {
     "name": "virtualboy",
     "title": "Virtual Boy",
     "altTitle": "Virtual Boy",
-    "core": "mednafen_vb"
+    "core": "mednafen_vb",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "200px",
+        "left": "57px",
+        "marginTop": "-20px"
+      }
+    }
   },
   {
     "name": "pokemini",
     "title": "Pokémon Mini",
     "altTitle": "Pokemon Mini",
-    "core": "pokemini"
+    "core": "pokemini",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "460px",
+        "transform": "translateY(89%)"
+      },
+      "gameInfo": {
+        "right": "-108%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "180px",
+        "left": "65px",
+        "marginTop": "-12px"
+      }
+    }
   },
   {
     "name": "pcfx",
     "title": "PC-FX",
     "altTitle": "PC-FX",
-    "core": "mednafen_pcfx"
+    "core": "mednafen_pcfx",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "175px",
+        "left": "60px",
+        "marginTop": "-8px"
+      }
+    }
   },
   {
     "name": "pcengine",
     "title": "TurboGrafX-16",
     "altTitle": "PC Engine/TurboGrafx-16",
-    "core": "mednafen_pce"
+    "core": "mednafen_pce",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "300px",
+        "transform": "translateY(96%)"
+      },
+      "gameInfo": {
+        "right": "-165%",
+        "bottom": "0"
+      },
+      "logo": {
+        "maxWidth": "175px",
+        "left": "65px",
+        "marginTop": "-10px"
+      }
+    }
   },
   {
     "name": "supergrafx",
     "title": "SuperGrafX",
     "altTitle": "SuperGrafX",
-    "core": "mednafen_pce"
+    "core": "mednafen_pce",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "300px",
+        "transform": "translateY(96%)"
+      },
+      "gameInfo": {
+        "right": "-165%",
+        "bottom": "0"
+      },
+      "logo": {
+        "maxWidth": "175px",
+        "left": "65px",
+        "marginTop": "-10px"
+      }
+    }
   },
   {
     "name": "pcenginecd",
     "title": "TurboGrafX-CD",
     "altTitle": "PC Engine CD/TurboGrafx-CD",
-    "core": "mednafen_pce"
+    "core": "mednafen_pce",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "185px",
+        "left": "60px",
+        "marginTop": "-15px"
+      }
+    }
   },
   {
     "name": "o2em",
     "title": "Videopac/Odyssey²",
     "altTitle": "Magnavox Odyssey 2",
-    "core": "o2em"
+    "core": "o2em",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "300px",
+        "transform": "translateY(96%)"
+      },
+      "gameInfo": {
+        "right": "-165%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "200px",
+        "left": "70px",
+        "marginTop": "-15px"
+      }
+    }
   },
   {
     "name": "dos",
     "title": "MS-DOS",
     "altTitle": "MS-DOS",
-    "core": "dosbox_pure"
+    "core": "dosbox_pure",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "165px",
+        "left": "70px",
+        "marginTop": "-7px"
+      }
+    }
   },
   {
     "name": "amiga",
     "title": "Amiga",
     "altTitle": "Amiga",
-    "core": "puae"
+    "core": "puae",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "410px",
+        "transform": "translateY(96%)"
+      },
+      "gameInfo": {
+        "right": "-120%",
+        "bottom": "20px"
+      }
+    }
   },
   {
     "name": "c64",
     "title": "Commodore 64",
     "altTitle": "Commodore 64",
-    "core": "vice_x64sc"
+    "core": "vice_x64sc",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "165px",
+        "left": "73px",
+        "marginTop": "-3px"
+      }
+    }
   },
   {
     "name": "amstradcpc",
     "title": "Amstrad CPC",
     "altTitle": "Amstrad CPC",
-    "core": "cap32"
+    "core": "cap32",
+    "styles": {
+      "swiperslide": {
+        "maxWidth": "440px",
+        "transform": "translateY(93%)"
+      },
+      "gameInfo": {
+        "right": "-113%",
+        "bottom": "20px"
+      },
+      "logo": {
+        "maxWidth": "165px",
+        "left": "73px",
+        "marginTop": "-3px"
+      }
+    }
   }
 ]

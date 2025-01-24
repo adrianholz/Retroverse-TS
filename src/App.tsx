@@ -5,6 +5,7 @@ import Container from "./Components/UI/Container/Container";
 import { EmulatorContextProvider } from "./EmulatorContext";
 import { SystemContextProvider } from "./SystemContext";
 import { UserContextProvider } from "./UserContext";
+import { LibraryContextProvider } from "./LibraryContext";
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
       <UserContextProvider>
         <EmulatorContextProvider>
           <SystemContextProvider>
-            <Container>
-              <AnimatedRoutes />
-            </Container>
+            <LibraryContextProvider>
+              <Container>
+                <AnimatedRoutes />
+              </Container>
+            </LibraryContextProvider>
           </SystemContextProvider>
         </EmulatorContextProvider>
       </UserContextProvider>
