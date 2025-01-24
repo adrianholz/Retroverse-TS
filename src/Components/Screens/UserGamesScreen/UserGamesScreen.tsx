@@ -159,7 +159,7 @@ const UserGamesScreen = () => {
                           })}
                         </h3>
                         <p>
-                          <strong>{game.numAwarded}</strong> out of{" "}
+                          <strong>{game.numAwardedHardcore}</strong> out of{" "}
                           <strong>{game.maxPossible}</strong> unlocked
                         </p>
                         {game.mostRecentAwardedDate ? (

@@ -85,9 +85,6 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
       const authorization = buildAuthorization({ username, webApiKey });
       window.localStorage.setItem("username", username);
       window.localStorage.setItem("webApiKey", webApiKey);
-      const toDate = new Date();
-      const fromDate = new Date();
-      fromDate.setMonth(fromDate.getMonth() - 1);
       const userSummary = await getUserSummary(authorization, {
         username: username,
         recentGamesCount: 0,

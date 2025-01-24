@@ -1,7 +1,8 @@
 .single-game {
   height: 100vh;
-  margin-top: 30px;
+  margin-top: 60px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: var(--w1);
@@ -12,6 +13,7 @@
     gap: 80px;
     opacity: 0;
     animation: appear 0.5s ease forwards;
+    padding-bottom: 20px;
     .single-game-intro {
       position: relative;
       display: flex;
@@ -68,6 +70,7 @@
           width: 100%;
           height: 200px;
           object-fit: cover;
+          filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.75));
         }
       }
     }
@@ -124,6 +127,9 @@
         li {
           max-height: 64px;
           max-width: 64px;
+          img {
+            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.75));
+          }
         }
       }
     }
@@ -217,36 +223,36 @@
         font-weight: 600;
       }
     }
-    .progress-bar {
-      width: 100%;
-      height: 5px;
-      background-color: #232323;
-      border-radius: 5px;
-      overflow: hidden;
-      margin-top: 5px;
+  }
+  .progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #232323;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+  }
+  .progress-bar-filled {
+    height: 100%;
+    background-image: linear-gradient(
+      to right,
+      rgb(255, 90, 0),
+      rgb(255, 200, 0)
+    );
+    border-radius: 5px 0 0 5px;
+    transition: width 0.3s ease;
+  }
+  .unlock-rate {
+    margin-top: 4px;
+    color: #aaa;
+    font-size: 0.75rem;
+    span {
+      color: var(--w1);
+      font-weight: 600;
     }
-    .progress-bar-filled {
-      height: 100%;
-      background-image: linear-gradient(
-        to right,
-        rgb(255, 90, 0),
-        rgb(255, 200, 0)
-      );
-      border-radius: 5px 0 0 5px;
-      transition: width 0.3s ease;
-    }
-    .unlock-rate {
-      margin-top: 4px;
-      color: #aaa;
-      font-size: 0.75rem;
-      span {
-        color: var(--w1);
-        font-weight: 600;
-      }
-    }
-    .got-achievement {
-      margin-top: 10px;
-    }
+  }
+  .got-achievement {
+    margin-top: 10px;
   }
   .tooltip.fade-in {
     opacity: 1;
@@ -255,5 +261,70 @@
   .tooltip.fade-out {
     opacity: 0;
     transform: translateX(20px);
+  }
+  .atropos-inner {
+    border-radius: 10px;
+  }
+  .single-game-footer {
+    max-width: 1060px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    opacity: 0;
+    animation: appear 0.5s ease forwards;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    .single-game-system {
+      border-radius: 10px;
+      position: relative;
+      .wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: brightness(0.4) blur(6px);
+        padding: 20px 0;
+      }
+      img,
+      video {
+        max-width: 200px;
+        max-height: 100px;
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+      }
+
+      video {
+        position: absolute;
+        left: 40px;
+        bottom: 0;
+      }
+    }
+    .user-game-progress {
+      display: flex;
+      gap: 30px;
+      img {
+        border-radius: 10px;
+        filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.75));
+      }
+      > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      h1 {
+        span {
+          color: var(--w1);
+          font-weight: 700;
+        }
+        color: #aaa;
+        font-weight: 500;
+        font-size: 2rem;
+        line-height: 2.25rem;
+      }
+      .unlock-rate {
+        font-size: 1rem;
+      }
+    }
   }
 }

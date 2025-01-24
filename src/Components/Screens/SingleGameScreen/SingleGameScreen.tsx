@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./SingleGameScreen.css";
 import {
   buildAuthorization,
@@ -8,10 +8,11 @@ import {
 } from "@retroachievements/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
-// import SystemContext from "../../../SystemContext";
+import SystemContext from "../../../SystemContext";
 import { motion } from "framer-motion";
 import Atropos from "atropos/react";
 import "atropos/css";
+import { UserContext } from "../../../UserContext";
 
 type TooltipTypes = {
   visible: boolean;
@@ -26,7 +27,8 @@ const SingleGameScreen = () => {
     .replace(/\\/g, "/");
 
   const { gameId } = useParams();
-  // const { systems } = useContext(SystemContext)!;
+  const { systems } = useContext(SystemContext)!;
+  const { summary } = useContext(UserContext)!;
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
@@ -59,6 +61,7 @@ const SingleGameScreen = () => {
         console.error("Failed to fetch user games:", error);
       } finally {
         setLoading(false);
+        console.log(game);
       }
     };
 
@@ -192,52 +195,54 @@ const SingleGameScreen = () => {
           <button onClick={() => navigate("/profile/games")}>
             Back to All Games
           </button>
-          <div
-            className="game"
-            style={{
-              backgroundImage: `url(https://retroachievements.org${game.imageTitle})`,
-            }}
-          >
-            {game.userCompletion === "100.00%" && (
-              <img
-                src={`${resourcesPath}/assets/img/webp/misc/badge.webp`}
-                className="completed-game"
-              />
-            )}
-            <div className="game-info">
-              <img
-                src={`https://retroachievements.org${game.imageIcon}`}
-                alt={game.title}
-                style={
-                  game.userCompletion === "100.00%"
-                    ? { boxShadow: "0 0 10px gold", border: "2px solid gold" }
-                    : { border: "2px solid transparent" }
-                }
-              />
-              <div>
-                <h1>
-                  {game.title.split(/(~[^~]+~)/).map((part, index) =>
-                    part.startsWith("~") && part.endsWith("~") ? (
-                      <span key={index} className={part.slice(1, -1)}>
-                        {part.slice(1, -1)}
-                      </span>
-                    ) : (
-                      part
-                    )
-                  )}
-                </h1>
-                <h2>{`${game.genre || "Unknown"} | ${
-                  game.released?.slice(0, 4) || "Unknown"
-                }`}</h2>
-                <h3>
-                  <span>Publisher</span> {game.publisher || "Unknown"}
-                </h3>
-                <h3>
-                  <span>Developer</span> {game.developer || "Unknown"}
-                </h3>
+          <Atropos>
+            <div
+              className="game"
+              style={{
+                backgroundImage: `url(https://retroachievements.org${game.imageTitle})`,
+              }}
+            >
+              {game.userCompletionHardcore === "100.00%" && (
+                <img
+                  src={`${resourcesPath}/assets/img/webp/misc/badge.webp`}
+                  className="completed-game"
+                />
+              )}
+              <div className="game-info">
+                <img
+                  src={`https://retroachievements.org${game.imageIcon}`}
+                  alt={game.title}
+                  style={
+                    game.userCompletionHardcore === "100.00%"
+                      ? { boxShadow: "0 0 10px gold", border: "2px solid gold" }
+                      : { border: "2px solid transparent" }
+                  }
+                />
+                <div>
+                  <h1>
+                    {game.title.split(/(~[^~]+~)/).map((part, index) =>
+                      part.startsWith("~") && part.endsWith("~") ? (
+                        <span key={index} className={part.slice(1, -1)}>
+                          {part.slice(1, -1)}
+                        </span>
+                      ) : (
+                        part
+                      )
+                    )}
+                  </h1>
+                  <h2>{`${game.genre || "Unknown"} | ${
+                    game.released?.slice(0, 4) || "Unknown"
+                  }`}</h2>
+                  <h3>
+                    <span>Publisher</span> {game.publisher || "Unknown"}
+                  </h3>
+                  <h3>
+                    <span>Developer</span> {game.developer || "Unknown"}
+                  </h3>
+                </div>
               </div>
             </div>
-          </div>
+          </Atropos>
           <div className="game-images">
             <span className="separator"></span>
             <Atropos>
@@ -317,19 +322,77 @@ const SingleGameScreen = () => {
           </ul>
         </div>
       </div>
+      <div className="single-game-footer">
+        <div className="user-game-progress">
+          <img
+            src={`https://retroachievements.org${summary?.userPic}`}
+            alt={summary?.user}
+          />
+          <div>
+            <h1>
+              <span>{summary?.user}</span>'s game progress
+            </h1>
+            <div className="progress">
+              <div className="progress-bar">
+                <div
+                  className="progress-bar-filled"
+                  style={{
+                    width: `${
+                      (game.numAwardedToUserHardcore / game.numAchievements) *
+                      100
+                    }%`,
+                  }}
+                ></div>
+              </div>
+              <p className="unlock-rate">
+                <span>
+                  {Math.round(
+                    (game.numAwardedToUserHardcore / game.numAchievements) * 100
+                  )}
+                  %
+                </span>{" "}
+                achievement unlock rate{" "}
+                {game.userCompletionHardcore == "100.00%" && (
+                  <span>- Mastered!</span>
+                )}
+              </p>
+            </div>
+          </div>
+        </div>
+        {systems
+          .filter((system) => system.altTitle === game.consoleName)
+          .map((system) => (
+            <Atropos>
+              <div
+                className="single-game-system"
+                style={{
+                  background: `url(${resourcesPath}/assets/img/webp/background/${system.name}.webp) center center`,
+                  backgroundSize: "cover",
+                }}
+              >
+                <div className="wrapper">
+                  <video
+                    src={`${resourcesPath}/assets/video/${system.name}.webm`}
+                    autoPlay
+                    loop
+                    muted
+                    disablePictureInPicture
+                    data-atropos-offset="-5"
+                  ></video>
+                  <img
+                    key={system.name}
+                    src={`${resourcesPath}/assets/img/webp/logo/${system.name}-logo.webp`}
+                    alt={`${system.name} logo`}
+                    data-atropos-offset="5"
+                  />
+                </div>
+              </div>
+            </Atropos>
+          ))}
+      </div>
       {renderTooltip()}
     </motion.div>
   );
 };
 
 export default SingleGameScreen;
-
-// {systems
-//   .filter((system) => system.altTitle === game.consoleName)
-//   .map((system) => (
-//     <img
-//       key={system.name}
-//       src={`${resourcesPath}/assets/img/webp/logo/${system.name}-logo.webp`}
-//       alt={`${system.name} logo`}
-//     />
-//   ))}
