@@ -6,6 +6,7 @@ import LoginScreen from "./Components/Screens/LoginScreen/LoginScreen";
 import UserGamesScreen from "./Components/Screens/UserGamesScreen/UserGamesScreen";
 import SingleGameScreen from "./Components/Screens/SingleGameScreen/SingleGameScreen";
 import LibraryScreen from "./Components/Screens/LibraryScreen/LibraryScreen";
+import SettingsScreen from "./Components/Screens/SettingsScreen/SettingsScreen";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -19,6 +20,7 @@ const AnimatedRoutes = () => {
         <Route path="/profile/games" element={<UserGamesScreen />} />
         <Route path="/profile/games/:gameId" element={<SingleGameScreen />} />
         <Route path="/library" element={<LibraryScreen />} />
+        <Route path="/settings" element={<SettingsScreen />} />
       </Routes>
     </AnimatePresence>
   );

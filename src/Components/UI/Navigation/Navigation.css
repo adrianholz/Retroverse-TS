@@ -40,6 +40,7 @@
       h1 {
         font-size: 1rem;
         color: var(--w1);
+        max-width: 300px;
       }
       h2 {
         display: flex;
@@ -121,7 +122,7 @@
         mask-repeat: no-repeat;
         -webkit-mask-size: cover;
         mask-size: cover;
-        transition: filter 0.3s ease;
+        transition: 0.3s ease;
       }
       .user-icon {
         border-radius: 5px;

@@ -164,13 +164,20 @@ ul {
 
 .Homebrew,
 .Hack,
-.Demo {
+.Demo,
+.Subset {
   text-transform: uppercase;
   display: inline-block;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  transform: translateY(-2px);
   background: #2b8be4;
   padding: 0px 6px;
   border-radius: 5px;
+}
+
+.Subset {
+  background: #722be4;
+  text-wrap: nowrap;
 }
 
 .Hack {

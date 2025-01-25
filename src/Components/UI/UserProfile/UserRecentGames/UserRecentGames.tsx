@@ -68,17 +68,24 @@ const UserRecentGames = ({
                   <div>
                     <div>
                       <h2>
-                        {game.title.split(/(~[^~]+~)/).map((part, index) => {
-                          if (part.startsWith("~") && part.endsWith("~")) {
-                            const content = part.slice(1, -1);
-                            return (
-                              <span key={index} className={content}>
-                                {content}
+                        {game.title
+                          .split(/(~[^~]+~|\[[^\]]+\])/)
+                          .map((part, index) =>
+                            part.startsWith("~") && part.endsWith("~") ? (
+                              <span key={index} className={part.slice(1, -1)}>
+                                {part.slice(1, -1)}
                               </span>
-                            );
-                          }
-                          return part;
-                        })}
+                            ) : part.startsWith("[") && part.endsWith("]") ? (
+                              <span
+                                key={index}
+                                className={part.slice(1, -1).split(" ")[0]}
+                              >
+                                {part.slice(1, -1)}
+                              </span>
+                            ) : (
+                              part
+                            )
+                          )}
                       </h2>
                       <h3>
                         {systems
