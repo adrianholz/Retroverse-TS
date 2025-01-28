@@ -40,7 +40,6 @@ declare global {
       color: string;
       size: number;
     }[];
-    musicPlayer: boolean;
     achievementOfTheWeek: boolean;
   };
 }

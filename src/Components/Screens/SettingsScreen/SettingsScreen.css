@@ -127,7 +127,8 @@
     font-family: "Chakra Petch", sans-serif;
     transition: 0.2s ease;
     opacity: 1;
-    &:hover {
+    &:hover,
+    &.active {
       border-color: var(--w1);
     }
   }

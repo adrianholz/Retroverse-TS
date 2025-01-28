@@ -40,7 +40,7 @@ const Title = ({ navigation }: { navigation: boolean }) => {
       className={`title ${navigation ? "navigation-title" : ""}`}
       onClick={handleClick}
     >
-      <h1 style={{ animationDelay: `${intro ? 1 : 0}s` }}>
+      <h1 style={{ animationDelay: `${intro && !navigation ? 1 : 0}s` }}>
         Retro<span>verse</span>
       </h1>
       {theme.shape ? (
@@ -48,7 +48,7 @@ const Title = ({ navigation }: { navigation: boolean }) => {
           className="shape"
           src={`${resourcesPath}/assets/img/webp/misc/shapes/${theme.shapeType}.webp`}
           alt="Shape"
-          style={{ animationDelay: `${intro ? 3.5 : 0}s` }}
+          style={{ animationDelay: `${intro && !navigation ? 3.5 : 0}s` }}
         />
       ) : null}
 
@@ -57,7 +57,7 @@ const Title = ({ navigation }: { navigation: boolean }) => {
           src={`${resourcesPath}/assets/img/webp/misc/orbit.webp`}
           alt="Orbit"
           className="orbit"
-          style={{ animationDelay: `0s, ${intro ? 3.5 : 0}s` }}
+          style={{ animationDelay: `0s, ${intro && !navigation ? 3.5 : 0}s` }}
         />
       ) : null}
       {theme.wave ? (
@@ -119,9 +119,10 @@ const Title = ({ navigation }: { navigation: boolean }) => {
                           } ${
                             intro ? 1.5 : 1.0
                           }s ease forwards, float 3.5s ease-in-out infinite`,
-                          animationDelay: intro
-                            ? `${2.5 + index * 0.25}s, ${4 + index * 0.25}s`
-                            : `${index * 0.25}s, ${1.0 + index * 0.25}s`,
+                          animationDelay:
+                            intro && !navigation
+                              ? `${2.5 + index * 0.25}s, ${4 + index * 0.25}s`
+                              : `${index * 0.25}s, ${1.0 + index * 0.25}s`,
                           opacity: 0,
                         } as React.CSSProperties;
                       case "orbit":
@@ -135,9 +136,10 @@ const Title = ({ navigation }: { navigation: boolean }) => {
                           }deg))`,
                           animation:
                             "spin 16s linear infinite, decoration-appear 0.3s ease forwards",
-                          animationDelay: intro
-                            ? `0s, ${4 + index * 0.15}s`
-                            : `0s, ${index * 0.15}s`,
+                          animationDelay:
+                            intro && !navigation
+                              ? `0s, ${4 + index * 0.15}s`
+                              : `0s, ${index * 0.15}s`,
                         };
                       case "wave":
                         return {
@@ -146,7 +148,9 @@ const Title = ({ navigation }: { navigation: boolean }) => {
                           animation: `wave 2s ease-in-out -${
                             index * 0.5
                           }s infinite alternate, decoration-appear 0.3s ease ${
-                            intro ? 4 + index * 0.15 : index * 0.15
+                            intro && !navigation
+                              ? 4 + index * 0.15
+                              : index * 0.15
                           }s forwards`,
                         };
                       default:

@@ -27,6 +27,14 @@ type UserContextTypes = {
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
   setTheme: React.Dispatch<React.SetStateAction<ThemeTypes>>;
   handleLogin: (username: string, webApiKey: string) => Promise<void>;
+  musicPlayer: boolean;
+  setMusicPlayer: React.Dispatch<React.SetStateAction<boolean>>;
+  windowMode: string | null;
+  setWindowMode: React.Dispatch<React.SetStateAction<string | null>>;
+  musicVolume: number;
+  setMusicVolume: React.Dispatch<React.SetStateAction<number>>;
+  language: string;
+  setLanguage: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const UserContext = createContext<UserContextTypes | undefined>(
@@ -40,6 +48,24 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [aotw, setAotw] = useState<AchievementOfTheWeek | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>(null);
+  const [musicPlayer, setMusicPlayer] = useState(
+    window.localStorage.getItem("musicPlayer")
+      ? window.localStorage.getItem("musicPlayer") == "true"
+        ? true
+        : false
+      : true
+  );
+  const [windowMode, setWindowMode] = useState(
+    window.localStorage.getItem("windowMode")
+      ? window.localStorage.getItem("windowMode")
+      : "Fullscreen"
+  );
+  const [musicVolume, setMusicVolume] = useState(
+    window.localStorage.getItem("musicVolume")
+      ? Number(window.localStorage.getItem("musicVolume"))
+      : 0.5
+  );
+  const [language, setLanguage] = useState("en-us");
   const [theme, setTheme] = useState(
     window.localStorage.getItem("theme")
       ? JSON.parse(window.localStorage.getItem("theme")!)
@@ -59,7 +85,6 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
             { color: "#ffffff50", size: 800 },
             { color: "#ffffff00", size: 800 },
           ],
-          musicPlayer: true, //music player visibility
           beat: true, //edge blurs animate on music bpm
           visualizer: true, //music visualizer on background
           achievementOfTheWeek: true,
@@ -81,6 +106,10 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
       setIntro(false);
     }
   }, []);
+
+  useEffect(() => {
+    window.ipcRenderer.send("set-window-mode", windowMode);
+  }, [windowMode]);
 
   async function handleLogin(username: string, webApiKey: string) {
     try {
@@ -149,6 +178,14 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
         setLogin,
         setTheme,
         handleLogin,
+        musicPlayer,
+        setMusicPlayer,
+        windowMode,
+        setWindowMode,
+        musicVolume,
+        setMusicVolume,
+        language,
+        setLanguage,
       }}
     >
       {children}

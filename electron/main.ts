@@ -37,6 +37,14 @@ function createWindow() {
     }
   });
 
+  ipcMain.on("set-window-mode", (_event, mode) => {
+    if (mode === "Fullscreen") {
+      win!.setFullScreen(true);
+    } else if (mode === "Windowed") {
+      win!.setFullScreen(false);
+    }
+  });
+
   if (VITE_DEV_SERVER_URL) {
     win.loadURL(VITE_DEV_SERVER_URL);
   } else {

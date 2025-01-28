@@ -309,7 +309,7 @@ const SingleGameScreen = () => {
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 1.1 }}
                     style={
-                      achievement.dateEarned
+                      achievement.dateEarnedHardcore
                         ? {}
                         : { filter: "saturate(0) brightness(0.5)" }
                     }

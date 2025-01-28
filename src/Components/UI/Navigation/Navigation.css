@@ -23,7 +23,7 @@
     > img {
       position: relative;
       z-index: 2;
-      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 1));
+      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.37));
     }
     .aotw-info {
       position: relative;

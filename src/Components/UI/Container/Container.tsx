@@ -9,7 +9,7 @@ import Navigation from "../Navigation/Navigation";
 const Container = ({ children }: { children: ReactNode }) => {
   let resourcesPath = window.ipcRenderer.sendSync("get-resources-path");
   resourcesPath = resourcesPath.replace(/\\/g, "/");
-  const { theme, intro } = useContext(UserContext)!;
+  const { theme, intro, musicVolume } = useContext(UserContext)!;
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const audioMotionRef = useRef<AudioMotionAnalyzer | null>(null);
@@ -27,7 +27,6 @@ const Container = ({ children }: { children: ReactNode }) => {
       : false
   );
   const [songIndex, setSongIndex] = useState(0);
-
   const [blurKey, setBlurKey] = useState(0);
 
   useEffect(() => {
@@ -103,6 +102,10 @@ const Container = ({ children }: { children: ReactNode }) => {
       hasMounted.current = true;
     }
   }, [song, pauseSong]);
+
+  useEffect(() => {
+    audioRef.current!.volume = musicVolume / 100;
+  }, [musicVolume]);
 
   return (
     <div

@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import "./GeneralTab.css";
+import { UserContext } from "../../../../UserContext";
 
 type GeneralTabTypes = {
   active: boolean;
@@ -8,6 +10,16 @@ const GeneralTab = ({ active }: GeneralTabTypes) => {
   const resourcesPath = window.ipcRenderer
     .sendSync("get-resources-path")
     .replace(/\\/g, "/");
+
+  const {
+    windowMode,
+    setWindowMode,
+    musicPlayer,
+    setMusicPlayer,
+    setMusicVolume,
+    language,
+    setLanguage,
+  } = useContext(UserContext)!;
 
   return (
     <div className={`settings-inner general-tab ${active ? "active" : ""}`}>
@@ -23,8 +35,24 @@ const GeneralTab = ({ active }: GeneralTabTypes) => {
               <p>Music player</p>
             </h2>
             <div className="buttons">
-              <button>Active</button>
-              <button>Inactive</button>
+              <button
+                onClick={() => {
+                  setMusicPlayer(true);
+                  window.localStorage.setItem("musicPlayer", "true");
+                }}
+                className={musicPlayer ? "active" : ""}
+              >
+                Active
+              </button>
+              <button
+                onClick={() => {
+                  setMusicPlayer(false);
+                  window.localStorage.setItem("musicPlayer", "false");
+                }}
+                className={!musicPlayer ? "active" : ""}
+              >
+                Inactive
+              </button>
             </div>
           </div>
           <div className="volume">
@@ -42,6 +70,15 @@ const GeneralTab = ({ active }: GeneralTabTypes) => {
               id="music-volume"
               min="0"
               max="100"
+              onChange={({ target }) => {
+                setMusicVolume(Number(target.value));
+                window.localStorage.setItem("musicVolume", target.value);
+              }}
+              defaultValue={
+                window.localStorage.getItem("musicVolume")
+                  ? Number(window.localStorage.getItem("musicVolume"))
+                  : 50
+              }
             />
           </div>
         </div>
@@ -55,8 +92,24 @@ const GeneralTab = ({ active }: GeneralTabTypes) => {
             <p>Window mode</p>
           </h2>
           <div className="buttons">
-            <button>Windowed</button>
-            <button>Fullscreen</button>
+            <button
+              onClick={() => {
+                setWindowMode("Windowed");
+                window.localStorage.setItem("windowMode", "Windowed");
+              }}
+              className={windowMode == "Windowed" ? "active" : ""}
+            >
+              Windowed
+            </button>
+            <button
+              onClick={() => {
+                setWindowMode("Fullscreen");
+                window.localStorage.setItem("windowMode", "Fullscreen");
+              }}
+              className={windowMode == "Fullscreen" ? "active" : ""}
+            >
+              Fullscreen
+            </button>
           </div>
         </div>
       </div>
@@ -71,13 +124,64 @@ const GeneralTab = ({ active }: GeneralTabTypes) => {
             <p>Emulators</p>
           </h2>
           <div className="buttons">
-            <button>RetroArch</button>
-            <button>ArcadeFlashWeb</button>
-            <button>Dolphin</button>
-            <button>PCSX2</button>
-            <button>RPCS3</button>
-            <button>Cemu</button>
-            <button>VPinball</button>
+            <button
+              onClick={() =>
+                window.ipcRenderer.invoke(
+                  "execute-emulator-command",
+                  "RetroArch"
+                )
+              }
+            >
+              RetroArch
+            </button>
+            <button
+              onClick={() =>
+                window.ipcRenderer.invoke(
+                  "execute-emulator-command",
+                  "ArcadeFlashWeb"
+                )
+              }
+            >
+              ArcadeFlashWeb
+            </button>
+            <button
+              onClick={() =>
+                window.ipcRenderer.invoke("execute-emulator-command", "Dolphin")
+              }
+            >
+              Dolphin
+            </button>
+            <button
+              onClick={() =>
+                window.ipcRenderer.invoke("execute-emulator-command", "PCSX2")
+              }
+            >
+              PCSX2
+            </button>
+            <button
+              onClick={() =>
+                window.ipcRenderer.invoke("execute-emulator-command", "RPCS3")
+              }
+            >
+              RPCS3
+            </button>
+            <button
+              onClick={() =>
+                window.ipcRenderer.invoke("execute-emulator-command", "Cemu")
+              }
+            >
+              Cemu
+            </button>
+            <button
+              onClick={() =>
+                window.ipcRenderer.invoke(
+                  "execute-emulator-command",
+                  "VPinball"
+                )
+              }
+            >
+              VPinball
+            </button>
           </div>
         </div>
         <div className="language">
@@ -90,8 +194,18 @@ const GeneralTab = ({ active }: GeneralTabTypes) => {
             <p>Language</p>
           </h2>
           <div className="buttons">
-            <button>English 🇺🇸</button>
-            <button>Português 🇧🇷</button>
+            <button
+              onClick={() => setLanguage("en-us")}
+              className={language == "en-us" ? "active" : ""}
+            >
+              English 🇺🇸
+            </button>
+            <button
+              onClick={() => setLanguage("pt-br")}
+              className={language == "pt-br" ? "active" : ""}
+            >
+              Português 🇧🇷
+            </button>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import "./MusicPlayer.css";
 import { BarLoader } from "react-spinners";
 import { useContext, useEffect } from "react";
 import LibraryContext from "../../../LibraryContext";
+import { UserContext } from "../../../UserContext";
 
 const MusicPlayer = ({
   audioDragRef,
@@ -14,7 +15,6 @@ const MusicPlayer = ({
   setPauseSong,
   songIndex,
   setSongIndex,
-  theme,
 }: {
   audioDragRef: React.MutableRefObject<null>;
   audioRef: React.RefObject<HTMLAudioElement>;
@@ -31,6 +31,7 @@ const MusicPlayer = ({
   resourcesPath = resourcesPath.replace(/\\/g, "/");
 
   const { setCarousel } = useContext(LibraryContext)!;
+  const { musicPlayer } = useContext(UserContext)!;
 
   useEffect(() => {
     const handleEnd = () => {
@@ -85,7 +86,7 @@ const MusicPlayer = ({
       drag
       dragConstraints={audioDragRef}
       className="music-player"
-      style={{ opacity: theme.musicPlayer ? 1 : 0 }}
+      style={{ opacity: musicPlayer ? 1 : 0 }}
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
     >
