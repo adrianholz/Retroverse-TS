@@ -4,7 +4,6 @@ import { BarLoader } from "react-spinners";
 import { useContext } from "react";
 import SystemContext from "../../../../SystemContext";
 import { useNavigate } from "react-router-dom";
-import Atropos from "atropos/react";
 import "atropos/css";
 
 const UserRecentGames = ({
@@ -34,82 +33,80 @@ const UserRecentGames = ({
           />
         ) : recentGames && recentGames.length > 0 ? (
           recentGames.map((game, index) => (
-            <Atropos>
-              <div
-                className="game"
-                key={index}
-                onClick={() => navigate(`/profile/games/${game.gameId}`)}
-                style={{
-                  backgroundImage: `url(https://retroachievements.org${game.imageTitle})`,
-                  boxShadow:
-                    game.numAchievedHardcore === game.numPossibleAchievements &&
-                    game.numPossibleAchievements != 0
-                      ? "0 0 10px gold"
-                      : "none",
-                  border:
-                    game.numAchievedHardcore === game.numPossibleAchievements &&
-                    game.numPossibleAchievements != 0
-                      ? "2px solid gold"
-                      : "none",
-                }}
-              >
-                {game.numAchievedHardcore === game.numPossibleAchievements &&
-                game.numPossibleAchievements != 0 ? (
-                  <img
-                    src={`${resourcesPath}/assets/img/webp/misc/badge.webp`}
-                    className="completed-game"
-                  />
-                ) : null}
-                <div className="game-info">
-                  <img
-                    src={`https://retroachievements.org${game.imageIcon}`}
-                    alt="Game Icon"
-                  />
+            <div
+              className="game"
+              key={index}
+              onClick={() => navigate(`/profile/games/${game.gameId}`)}
+              style={{
+                backgroundImage: `url(https://retroachievements.org${game.imageTitle})`,
+                boxShadow:
+                  game.numAchievedHardcore === game.numPossibleAchievements &&
+                  game.numPossibleAchievements != 0
+                    ? "0 0 10px gold"
+                    : "none",
+                border:
+                  game.numAchievedHardcore === game.numPossibleAchievements &&
+                  game.numPossibleAchievements != 0
+                    ? "2px solid gold"
+                    : "none",
+              }}
+            >
+              {game.numAchievedHardcore === game.numPossibleAchievements &&
+              game.numPossibleAchievements != 0 ? (
+                <img
+                  src={`${resourcesPath}/assets/img/webp/misc/badge.webp`}
+                  className="completed-game"
+                />
+              ) : null}
+              <div className="game-info">
+                <img
+                  src={`https://retroachievements.org${game.imageIcon}`}
+                  alt="Game Icon"
+                />
+                <div>
                   <div>
-                    <div>
-                      <h2>
-                        {game.title
-                          .split(/(~[^~]+~|\[[^\]]+\])/)
-                          .map((part, index) =>
-                            part.startsWith("~") && part.endsWith("~") ? (
-                              <span key={index} className={part.slice(1, -1)}>
-                                {part.slice(1, -1)}
-                              </span>
-                            ) : part.startsWith("[") && part.endsWith("]") ? (
-                              <span
-                                key={index}
-                                className={part.slice(1, -1).split(" ")[0]}
-                              >
-                                {part.slice(1, -1)}
-                              </span>
-                            ) : (
-                              part
-                            )
-                          )}
-                      </h2>
-                      <h3>
-                        {systems
-                          .filter(
-                            (system) => system.altTitle === game.consoleName
+                    <h2>
+                      {game.title
+                        .split(/(~[^~]+~|\[[^\]]+\])/)
+                        .map((part, index) =>
+                          part.startsWith("~") && part.endsWith("~") ? (
+                            <span key={index} className={part.slice(1, -1)}>
+                              {part.slice(1, -1)}
+                            </span>
+                          ) : part.startsWith("[") && part.endsWith("]") ? (
+                            <span
+                              key={index}
+                              className={part.slice(1, -1).split(" ")[0]}
+                            >
+                              {part.slice(1, -1)}
+                            </span>
+                          ) : (
+                            part
                           )
-                          .map((system) => (
-                            <img
-                              key={system.name}
-                              src={`${resourcesPath}/assets/img/webp/logo/${system.name}-logo.webp`}
-                              alt={`${system.name} logo`}
-                            />
-                          ))}
-                        <span>{game.consoleName}</span>
-                      </h3>
-                    </div>
-                    <p>
-                      <span>{game.numAchievedHardcore}</span> out of{" "}
-                      <span>{game.numPossibleAchievements}</span> unlocked
-                    </p>
+                        )}
+                    </h2>
+                    <h3>
+                      {systems
+                        .filter(
+                          (system) => system.altTitle === game.consoleName
+                        )
+                        .map((system) => (
+                          <img
+                            key={system.name}
+                            src={`${resourcesPath}/assets/img/webp/logo/${system.name}-logo.webp`}
+                            alt={`${system.name} logo`}
+                          />
+                        ))}
+                      <span>{game.consoleName}</span>
+                    </h3>
                   </div>
+                  <p>
+                    <span>{game.numAchievedHardcore}</span> out of{" "}
+                    <span>{game.numPossibleAchievements}</span> unlocked
+                  </p>
                 </div>
               </div>
-            </Atropos>
+            </div>
           ))
         ) : (
           <p className="no-recent">No recent games were found.</p>

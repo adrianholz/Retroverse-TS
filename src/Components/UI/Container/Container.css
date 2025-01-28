@@ -23,6 +23,7 @@
     bottom: 0;
     z-index: -2;
     width: 105%;
+    transition: 0.3s ease;
   }
 }
 

@@ -10,7 +10,7 @@ const Navigation = () => {
   resourcesPath = resourcesPath.replace(/\\/g, "/");
 
   const { login, summary, aotw, theme } = useContext(UserContext)!;
-  const { systems } = useContext(SystemContext)!;
+  const { systems, currentActiveSystems } = useContext(SystemContext)!;
 
   const location = useLocation();
 
@@ -21,7 +21,9 @@ const Navigation = () => {
   return (
     <div
       className={`navigation ${
-        location.pathname == "/library" ? "background" : ""
+        location.pathname == "/library" && currentActiveSystems.length > 0
+          ? "background"
+          : ""
       }`}
     >
       {login && aotw && theme.achievementOfTheWeek ? (

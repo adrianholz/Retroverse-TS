@@ -89,10 +89,8 @@
       border: 1px solid transparent;
       transition: 0.3s ease;
       border-radius: 10px;
-      &:nth-child(1) {
-        img {
-          filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
-        }
+      .user-icon {
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
       }
       &:hover {
         background: linear-gradient(
@@ -141,5 +139,6 @@
 @media (min-width: 1600px) {
   .navigation.background::before {
     opacity: 1;
+    transition-delay: 0.3s;
   }
 }

@@ -1,5 +1,7 @@
 /// <reference types="vite/client" />
 
+import { CSSProperties } from "react";
+
 declare global {
   type Song = {
     author: string;
@@ -7,6 +9,19 @@ declare global {
     coverArt: string;
     name: string;
     file: string;
+  };
+
+  type System = {
+    name: string;
+    title: string;
+    altTitle: string;
+    core: string;
+    styles: {
+      swiperSlide?: CSSProperties;
+      gameInfo?: CSSProperties;
+      video?: CSSProperties;
+      logo?: CSSProperties;
+    };
   };
 
   type ThemeTypes = {
@@ -26,12 +41,6 @@ declare global {
       size: number;
     }[];
     musicPlayer: boolean;
-    visualizerStyle: {
-      type: string;
-      opacity: number;
-      saturate: number;
-      brightness: number;
-    };
     achievementOfTheWeek: boolean;
   };
 }

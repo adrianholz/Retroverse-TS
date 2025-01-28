@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, ipcMain, dialog } from "electron";
 import { fileURLToPath } from "node:url";
 import { spawn } from "child_process";
 import fs from "fs";
@@ -71,7 +71,7 @@ ipcMain.on("read-file", (event, filePath) => {
 //Define the base paths for development and production
 const basePath = VITE_DEV_SERVER_URL
   ? path.join(process.env.VITE_PUBLIC, "..", "extras") // Development path
-  : path.join(process.resourcesPath, "emulators"); // Production path
+  : path.join(process.resourcesPath); // Production path
 
 // Define emulators with properties
 let emulators = [
@@ -222,6 +222,36 @@ const extractMetadata = async (filePath: string) => {
     return null;
   }
 };
+
+ipcMain.handle("get-files", (_event, type) => {
+  const dir =
+    type === "shapes"
+      ? path.join(basePath, "assets", "img", "webp", "misc", "shapes")
+      : path.join(basePath, "assets", "img", "svg", "patterns");
+  return fs
+    .readdirSync(dir)
+    .filter((file) => file.endsWith(".webp") || file.endsWith(".svg"));
+});
+
+ipcMain.handle("add-file", async (_event, type) => {
+  const dir =
+    type === "shapes"
+      ? path.join(basePath, "assets", "img", "webp", "misc", "shapes")
+      : path.join(basePath, "assets", "img", "svg", "patterns");
+  const { canceled, filePaths } = await dialog.showOpenDialog({
+    properties: ["openFile"],
+    filters: [{ name: "Images", extensions: ["webp", "svg"] }],
+  });
+
+  if (canceled || filePaths.length === 0) return null;
+
+  const file = filePaths[0];
+  const fileName = path.basename(file);
+  const dest = path.join(dir, fileName);
+
+  fs.copyFileSync(file, dest);
+  return fileName;
+});
 
 ipcMain.on("close-app", () => {
   app.quit();

@@ -1,27 +1,10 @@
-import {
-  createContext,
-  CSSProperties,
-  ReactNode,
-  useEffect,
-  useState,
-} from "react";
-
-type System = {
-  name: string;
-  title: string;
-  altTitle: string;
-  core: string;
-  styles: {
-    swiperSlide?: CSSProperties;
-    gameInfo?: CSSProperties;
-    video?: CSSProperties;
-    logo?: CSSProperties;
-  };
-};
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 type SystemContextTypes = {
   systems: System[];
   setSystems: React.Dispatch<React.SetStateAction<System[]>>;
+  currentActiveSystems: System[];
+  setCurrentActiveSystems: React.Dispatch<React.SetStateAction<System[]>>;
 };
 
 export const SystemContext = createContext<SystemContextTypes | undefined>(
@@ -34,6 +17,9 @@ export const SystemContextProvider = ({
   children: ReactNode;
 }) => {
   const [systems, setSystems] = useState<System[]>([]);
+  const [currentActiveSystems, setCurrentActiveSystems] = useState<System[]>(
+    []
+  );
 
   let resourcesPath = window.ipcRenderer.sendSync("get-resources-path");
   resourcesPath = resourcesPath.replace(/\\/g, "/");
@@ -50,6 +36,11 @@ export const SystemContextProvider = ({
       const data: System[] = JSON.parse(fileContent);
 
       setSystems(data);
+      setCurrentActiveSystems(
+        window.localStorage.getItem("activeSystems")
+          ? JSON.parse(window.localStorage.getItem("activeSystems")!)
+          : systems[0]
+      );
     };
 
     loadData();
@@ -60,6 +51,8 @@ export const SystemContextProvider = ({
       value={{
         setSystems,
         systems,
+        currentActiveSystems,
+        setCurrentActiveSystems,
       }}
     >
       {children}

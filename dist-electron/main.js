@@ -1,4 +1,4 @@
-import { ipcMain, app, BrowserWindow } from "electron";
+import { ipcMain, app, dialog, BrowserWindow } from "electron";
 import { fileURLToPath } from "node:url";
 import { spawn } from "child_process";
 import fs from "fs";
@@ -50,7 +50,7 @@ ipcMain.on("read-file", (event, filePath) => {
     event.returnValue = null;
   }
 });
-const basePath = VITE_DEV_SERVER_URL ? path.join(process.env.VITE_PUBLIC, "..", "extras") : path.join(process.resourcesPath, "emulators");
+const basePath = VITE_DEV_SERVER_URL ? path.join(process.env.VITE_PUBLIC, "..", "extras") : path.join(process.resourcesPath);
 let emulators = [
   {
     name: "RetroArch",
@@ -179,6 +179,23 @@ const extractMetadata = async (filePath) => {
     return null;
   }
 };
+ipcMain.handle("get-files", (_event, type) => {
+  const dir = type === "shapes" ? path.join(basePath, "assets", "img", "webp", "misc", "shapes") : path.join(basePath, "assets", "img", "svg", "patterns");
+  return fs.readdirSync(dir).filter((file) => file.endsWith(".webp") || file.endsWith(".svg"));
+});
+ipcMain.handle("add-file", async (_event, type) => {
+  const dir = type === "shapes" ? path.join(basePath, "assets", "img", "webp", "misc", "shapes") : path.join(basePath, "assets", "img", "svg", "patterns");
+  const { canceled, filePaths } = await dialog.showOpenDialog({
+    properties: ["openFile"],
+    filters: [{ name: "Images", extensions: ["webp", "svg"] }]
+  });
+  if (canceled || filePaths.length === 0) return null;
+  const file = filePaths[0];
+  const fileName = path.basename(file);
+  const dest = path.join(dir, fileName);
+  fs.copyFileSync(file, dest);
+  return fileName;
+});
 ipcMain.on("close-app", () => {
   app.quit();
 });

@@ -40,33 +40,31 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [aotw, setAotw] = useState<AchievementOfTheWeek | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>(null);
-  const [theme, setTheme] = useState({
-    shape: true,
-    shapeType: "inverted-triangle", //circle, triangle, inverted-triangle, star, hexagon
-    pattern: true,
-    patternType: "grid", //grid, net, lines
-    orbit: false,
-    wave: true,
-    emulatorLogos: true,
-    emulatorLogosStyle: "wave", //orbit, float, wave"
-    background: true, //edge blurs
-    backgroundColors: [
-      { color: "#ffffff50", size: 800 },
-      { color: "#ffffff00", size: 800 },
-      { color: "#ffffff50", size: 800 },
-      { color: "#ffffff00", size: 800 },
-    ],
-    musicPlayer: true, //music player visibility
-    beat: true, //edge blurs animate on music bpm
-    visualizer: true, //music visualizer on background
-    visualizerStyle: {
-      type: "prism", //prism, classic, rainbow
-      opacity: 40, //0-100
-      saturate: 0, //0-100
-      brightness: 40, //0-100
-    },
-    achievementOfTheWeek: true,
-  });
+  const [theme, setTheme] = useState(
+    window.localStorage.getItem("theme")
+      ? JSON.parse(window.localStorage.getItem("theme")!)
+      : {
+          shape: true,
+          shapeType: "inverted-triangle", //circle, triangle, inverted-triangle, star, hexagon
+          pattern: true,
+          patternType: "grid", //grid, net, lines
+          orbit: false,
+          wave: true,
+          emulatorLogos: true,
+          emulatorLogosStyle: "wave", //orbit, float, wave"
+          background: true, //edge blurs
+          backgroundColors: [
+            { color: "#ffffff50", size: 800 },
+            { color: "#ffffff00", size: 800 },
+            { color: "#ffffff50", size: 800 },
+            { color: "#ffffff00", size: 800 },
+          ],
+          musicPlayer: true, //music player visibility
+          beat: true, //edge blurs animate on music bpm
+          visualizer: true, //music visualizer on background
+          achievementOfTheWeek: true,
+        }
+  );
 
   const navigate = useNavigate();
 

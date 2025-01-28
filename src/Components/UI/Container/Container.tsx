@@ -83,7 +83,7 @@ const Container = ({ children }: { children: ReactNode }) => {
       frequencyScale: "log",
       showPeaks: false,
       smoothing: 0.6,
-      gradient: theme.visualizer ? theme.visualizerStyle.type : "prism",
+      gradient: "prism",
     });
 
     audioMotionRef.current = audioMotion;
@@ -134,16 +134,14 @@ const Container = ({ children }: { children: ReactNode }) => {
 
       {children}
 
-      {theme.visualizer ? (
-        <div
-          id="audioContainer"
-          ref={audioContainerRef}
-          style={{
-            opacity: `${theme.visualizerStyle.opacity}%`,
-            filter: `saturate(${theme.visualizerStyle.saturate}%) brightness(${theme.visualizerStyle.brightness}%)`,
-          }}
-        ></div>
-      ) : null}
+      <div
+        id="audioContainer"
+        ref={audioContainerRef}
+        style={{
+          opacity: `${theme.visualizer ? "40" : "0"}%`,
+          filter: `saturate(0%) brightness(40%)`,
+        }}
+      ></div>
 
       <MusicPlayer
         audioDragRef={audioDragRef}
